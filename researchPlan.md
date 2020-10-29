@@ -6,7 +6,7 @@ to start the project we will need to research how to go about completing each ta
 
 ## Front-end
 
-- first we need to design the the layout we like in figma
+- first we need to design the layout we like in figma
 - we then need to create a html layout for us to add the css design we created in figma
 
 useful link to help us understand how we can develop the front end:
