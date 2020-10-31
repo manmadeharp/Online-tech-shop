@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T15:57:29.644Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="JlvWP3_uv3eLd7l6IdEF" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T16:58:29.439Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="PDv9EnodynUnukDF2Quo" version="13.8.8" type="github">
   <diagram id="DtBKLU533AeeCekswdm3" name="Page-1">
     <mxGraphModel dx="1697" dy="951" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -105,7 +105,37 @@
           <mxGeometry x="110" y="50" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-3" value="Back-end (MongoDB)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1121" y="40" width="240" height="80" as="geometry" />
+          <mxGeometry x="1240" y="40" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-8" value="Front-end queries" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-13" value="Create New Table" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="120" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-14" value="Insert into table" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="260" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-18" value="Delete from table" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="400" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-21" value="Database of customers:&lt;br&gt;First name,&lt;br&gt;Last name,&lt;br&gt;Email,&lt;br&gt;Phone Number&lt;br&gt;Address Name,&lt;br&gt;Address Number,&lt;br&gt;Postcode,&lt;br&gt;City,&lt;br&gt;Country,&lt;br&gt;Role: Admin/User," style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="140" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-22" value="I had a look at the project documentation and There is Going to be ALOT of queries from the user and admin so I imagine this is going to be very detailed" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="870" y="650" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-23" value="Find from table" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="520" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-25" value="Database of orders:&lt;br&gt;Product Name,&lt;br&gt;Product image,&lt;br&gt;Price,&lt;br&gt;Order Status open/closed,&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="540" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-26" value="Database of data per month(profits, new customers):&lt;br&gt;Product Name,&lt;br&gt;Product image,&lt;br&gt;Price,&lt;br&gt;Order Status open/closed,&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1241" y="740" width="320" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5ajDLAWxTpy7vD3DQdbc-27" value="Database of inventory:&lt;br&gt;First name,&lt;br&gt;Last name,&lt;br&gt;Email,&lt;br&gt;Phone Number&lt;br&gt;Address Name,&lt;br&gt;Address Number,&lt;br&gt;Postcode,&lt;br&gt;City,&lt;br&gt;Country,&lt;br&gt;Role: Admin/User," style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="340" width="240" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
