@@ -31,3 +31,9 @@ $ git fetch -Downloads all history from the remote tracking branches
 $ git merge -Combines remote tracking branches into current local branch
 $ git push -Uploads all local branch commits to GitHub
 $ git pull -Updates your current local working branch with all new commits from the corresponding remote branch on GitHub. git pull is a combination of git fetch and git merge
+
+git branch issue#5
+git checkout issue#5
+git add .
+git commit -m "issue #5"
+git push -u origin issue#5
