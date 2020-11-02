@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-02T11:13:34.608Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="XgPICZVgs4kz82pq5BGb" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-02T18:51:25.811Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="KM5ifz5kxuq4mDYPFzcL" version="13.8.8" type="github">
   <diagram id="DtBKLU533AeeCekswdm3" name="Page-1">
     <mxGraphModel dx="1697" dy="951" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -116,6 +116,9 @@
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-13" value="Create New Table" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1200" y="140" width="160" height="120" as="geometry" />
         </mxCell>
+        <mxCell id="oTa8SBIatD9vOCsxrec--3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5ajDLAWxTpy7vD3DQdbc-14" target="5ajDLAWxTpy7vD3DQdbc-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-14" value="Insert into table" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1200" y="300" width="160" height="120" as="geometry" />
         </mxCell>
@@ -126,9 +129,9 @@
           <mxGeometry x="1540" y="140" width="240" height="180" as="geometry" />
         </mxCell>
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-22" value="I had a look at the project documentation and There is Going to be ALOT of queries from the user and admin so I imagine this is going to be very detailed" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="870" y="860" width="190" height="110" as="geometry" />
+          <mxGeometry x="870" y="820" width="190" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="AVBAfT605RGoJC9w8UeD-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5ajDLAWxTpy7vD3DQdbc-23" target="5ajDLAWxTpy7vD3DQdbc-27">
+        <mxCell id="AVBAfT605RGoJC9w8UeD-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="5ajDLAWxTpy7vD3DQdbc-23" target="5ajDLAWxTpy7vD3DQdbc-27" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-23" value="Find from table" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -184,6 +187,12 @@
         </mxCell>
         <mxCell id="5ajDLAWxTpy7vD3DQdbc-35" value="request product data" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="880" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oTa8SBIatD9vOCsxrec--2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="oTa8SBIatD9vOCsxrec--1" target="5ajDLAWxTpy7vD3DQdbc-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oTa8SBIatD9vOCsxrec--1" value="Reset Password" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="905" y="330" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
