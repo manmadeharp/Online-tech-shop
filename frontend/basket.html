@@ -6,9 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tech Shop</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/basket.css" rel="stylesheet" type="text/css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
 </head>
 <body>
-<div class="container">
+<div class="region">
   <header>
     <div class="primary_header">
       <h1 class="title">Online Tech Shop <img src="images/basket+buy+cart+internet+online+shopping+icon.png" width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;"/><a href="#" style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">Login/Signup</a> </h1>
@@ -24,59 +27,99 @@
       </ul>
     </nav>
   </header>
-  <section>
-    <h2 class="noDisplay">Main Content</h2>
-    <article class="left_article">
-      <h3>content heading</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </article>
-    <aside class="right_article"><img src="images/placeholder.jpg" alt="" width="400" height="350" class="placeholder"/> </aside>
-  </section>
-  <div class="row">
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/> </p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/> </p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/> </p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/> </p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/></p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/></p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/></p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-    <div class="columns">
-      <p class="thumbnail_align"> <img src="images/bkg_06.jpg" alt="" class="thumbnail"/></p>
-      <h4>TITLE</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-    </div>
-  </div>
+<!-- -------   -->
+<script src="https://use.fontawesome.com/c560c025cf.js"></script>
+<div class="container">
+   <div class="card shopping-cart">
+            <div class="card-header bg-dark text-light">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Shipping cart
+                <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-body">
+                    <!-- PRODUCT -->
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                        </div>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                            <h4 class="product-name"><strong>Product Name</strong></h4>
+                            <h4>
+                                <small>Product description</small>
+                            </h4>
+                        </div>
+                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4">
+                                <div class="quantity">
+                                    <input type="button" value="+" class="plus">
+                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4">
+                                    <input type="button" value="-" class="minus">
+                                </div>
+                            </div>
+                            <div class="col-2 col-sm-2 col-md-2 text-right">
+                                <button type="button" class="btn btn-outline-danger btn-xs">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- END PRODUCT -->
+                    <!-- PRODUCT -->
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                        </div>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                            <h4 class="product-name"><strong>Product Name</strong></h4>
+                            <h4>
+                                <small>Product description</small>
+                            </h4>
+                        </div>
+                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4">
+                                <div class="quantity">
+                                    <input type="button" value="+" class="plus">
+                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4">
+                                    <input type="button" value="-" class="minus">
+                                </div>
+                            </div>
+                            <div class="col-2 col-sm-2 col-md-2 text-right">
+                                <button type="button" class="btn btn-outline-danger btn-xs">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- END PRODUCT -->
+                <div class="pull-right">
+                    <a href="" class="btn btn-outline-secondary pull-right">
+                        Update shopping cart
+                    </a>
+                </div>
+            </div>
+            <div class="card-footer">
+                
+                <div class="pull-right" style="margin: 10px">
+                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                    <div class="pull-right" style="margin: 5px">
+                        Total price: <b>50.00€</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>>
+<!--  -->
   <div class="row blockDisplay">
     <div class="column_half left_half">
       <h2 class="column_title">LEFT COLUMN</h2>
@@ -96,5 +139,7 @@
     <div class="copyright"><strong>2020 </strong>-<strong> Online tech shop</strong> </div>
   </footer>
 </div>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
