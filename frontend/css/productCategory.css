@@ -486,12 +486,12 @@ pre code {
 }
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  /* padding-right: 15px;
+  padding-left: 15px; */
   margin-right: auto;
   margin-left: auto;
 }
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
@@ -509,8 +509,8 @@ pre code {
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
-  }
-}
+  } */
+
 .container-fluid {
   width: 100%;
   padding-right: 15px;
@@ -523,8 +523,8 @@ pre code {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  /* margin-right: -15px;
+  margin-left: -15px; */
 }
 .no-gutters {
   margin-right: 0;
@@ -2406,14 +2406,12 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
 }
 .btn-danger {
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  color: black;
+  /* background-color: #dc3545; */
+  /* border-color: #dc3545; */
 }
 .btn-danger:hover {
-  color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
+  color: black;
 }
 .btn-danger.focus,
 .btn-danger:focus {
@@ -2422,21 +2420,22 @@ fieldset:disabled a.btn {
 .btn-danger.disabled,
 .btn-danger:disabled {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  /* background-color: #dc3545;
+  border-color: #dc3545; */
 }
-.btn-danger:not(:disabled):not(.disabled).active,
+
+/* .btn-danger:not(:disabled):not(.disabled).active,
 .btn-danger:not(:disabled):not(.disabled):active,
 .show > .btn-danger.dropdown-toggle {
-  color: #fff;
-  background-color: #bd2130;
-  border-color: #b21f2d;
+  /* color: #fff; */
+/* background-color: #bd2130;
+  border-color: #b21f2d; 
 }
 .btn-danger:not(:disabled):not(.disabled).active:focus,
 .btn-danger:not(:disabled):not(.disabled):active:focus,
 .show > .btn-danger.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
-}
+  /* box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); 
+} */
 .btn-light {
   color: #212529;
   background-color: #f8f9fa;
@@ -4475,7 +4474,7 @@ input[type="submit"].btn-block {
 }
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: #e9ecef;
   border-radius: 0.3rem;
 }
