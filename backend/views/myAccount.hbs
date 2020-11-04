@@ -2,9 +2,11 @@
     <header>
         <div class="primary_header">
             <h1 class="title">Online Tech Shop <img src="images/basket+buy+cart+internet+online+shopping+icon.png"
-                    width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;" /><a
-                    href="#"
-                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">Login/Signup</a>
+                    width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;" />
+                <a href="/users/login"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    {{ if logged in}} {{firstName}} {{lastName}} {{else}} Login/Signup {{end if}}
+                </a>
             </h1>
         </div>
         <nav class="secondary_header" id="menu">

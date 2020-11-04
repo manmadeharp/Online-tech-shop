@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
+
+
 const userModel = require('../models/userModel');
 const UserModel = require('../models/userModel');
 
-
+const {checkSignedIn} = require('../controllers/auth');
+const { response } = require('express');
+const {nanoid} = require('nanoid')
 // router.get('/register', (req, res) => {
 //     res.render('register')
 // });
 
-// router.get('/login', (req, res) => {
-//     res.render('login')
-// });
+router.get('/login', (req, res) => {
+    res.render('login')
+});
 
 // router.get('/profile', (req, res) => {
 //     res.render('myAccount');
@@ -22,18 +26,22 @@ router.get('/users', async(req, res)=> {
     res.send(users);
 });
 
-router.post('/account/create', async(req, res) => {
-    const {name, email, age, phoneNumber, password, passwordConfirmation, AddressName, AddressNumber, Postcode, City, Country} = req.body;
+router.get('/profile', checkSignedIn, async (req, res) => {
+    res.render('myAccount')
+})
 
-    if (!name || !email || !age || !password || !passwordConfirmation || !AddressName || !AddressNumber || !Postcode || !City || !Country) {
+router.post('/account/create', async(req, res) => {
+    const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
+
+    if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
         res.send('Missing required information');
         return;
     }
 
-    if (password != passwordConfirmation) {
-        res.send('password not equal');
-        return;
-    }
+    // if (password != passwordConfirmation) {
+    //     res.send('password not equal');
+    //     return;
+    // }       saved password  = 12345
 
     if (await UserModel.checkExists(email, phoneNumber)) {
         res.send('A user with this email or phone number already exists');
@@ -48,29 +56,32 @@ router.post('/account/create', async(req, res) => {
         email,
         phoneNumber,
         password: hashedpassword,
-        AddressName,
-        AddressNumber,
-        Postcode,
-        City,
-        Country,
+        addressName,
+        addressNumber,
+        postcode,
+        city,
+        country,
         role: 'User',
     });
 
     user.save();
-
-    res.send('User was created');
+    req.session.userID = nanoid()
+    req.session.save()
+    res.redirect('/users/profile')
 });
 
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;
 
     if (!await UserModel.checkExists(email)) {
-        res.send('A user with this email doesn\'t exist');
+        res.render('login', {error: 'no email exist'})
         return;
     }
 
     if (await userModel.comparePassword(email, password)) {
-        res.send('You are now logged in');
+        res.render('myAccount', {firstName: firstName, lastName: lastName})
+        req.session.userID = nanoid()
+        req.session.save()
         return;
     }
 
