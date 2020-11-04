@@ -1407,10 +1407,10 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
+/* .row {
+  /* margin-right: -15px;
+  margin-left: -15px; 
+} */
 .col-xs-1,
 .col-sm-1,
 .col-md-1,

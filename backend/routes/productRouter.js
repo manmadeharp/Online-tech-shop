@@ -1,12 +1,4 @@
-const router = require("express").Router();
-
-router.get('/', (req, res) => {
-    res.send('index page');
-});
-
-router.get('/signup', (req, res) => {
-    res.send('sign up page');
-});
+const router = require('express').Router();
 
 router.get('/mobiles', (req, res) => {
     res.send('mobiles page');
@@ -26,10 +18,6 @@ router.get('/smartwatches', (req, res) => {
 
 router.get('/accessories', (req, res) => {
     res.send('accessories page');
-});
-
-router.get('/basket', (req, res) => {
-    res.send('basket page');
 });
 
 module.exports = router;
