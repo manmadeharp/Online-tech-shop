@@ -24,22 +24,12 @@ app.engine('.hbs', hbs({
 
 }));
 
+app.set('view engine', '.hbs');
+
 mongoose.connect('mongodb+srv://root:password1234@cluster0.voeb0.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-
-app.set('view engine', '.hbs');
-
-app.use('/products', productRouter);
-
-app.use('/users', usersRouter);
-
-app.use('/admin', adminRouter);
-
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
 app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection}),
@@ -52,6 +42,19 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 2 // 2 hours
     }
 }));
+
+
+app.use('/products', productRouter);
+
+app.use('/users', usersRouter);
+
+app.use('/admin', adminRouter);
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+
 
 const port = process.env.PORT || 8000 
 
