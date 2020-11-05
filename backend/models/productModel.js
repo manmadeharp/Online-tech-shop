@@ -12,4 +12,11 @@ const product = new Schema({
     }
 });
 
+
+product.statics.checkExists = async function (name) {
+    const exists = await this.exists({$or: [{name}]});
+
+    return exists;
+}
+
 module.exports = model('products', product);
