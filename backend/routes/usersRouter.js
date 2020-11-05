@@ -8,17 +8,17 @@ const UserModel = require('../models/userModel');
 const {checkSignedIn} = require('../controllers/auth');
 const { response } = require('express');
 const {nanoid} = require('nanoid')
-// router.get('/register', (req, res) => {
-//     res.render('register')
-// });
+router.get('/register', (req, res) => {
+    res.render('register')
+});
 
 router.get('/login', (req, res) => {
     res.render('login')
 });
 
-// router.get('/profile', (req, res) => {
-//     res.render('myAccount');
-// });
+router.get('/profile', (req, res) => {
+    res.render('myAccount');
+});
 
 router.get('/users', async(req, res)=> {
     const users = await UserModel.find({});

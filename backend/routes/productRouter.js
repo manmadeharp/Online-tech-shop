@@ -1,23 +1,23 @@
 const router = require('express').Router();
 
 router.get('/mobiles', (req, res) => {
-    res.send('mobiles page');
+    res.render('productCategory');
 });
 
 router.get('/desktops', (req, res) => {
-    res.send('desktops page');
+    res.render('productCategory');
 });
 
 router.get('/laptops', (req, res) => {
-    res.send('laptops page');
+    res.render('productCategory');
 });
 
 router.get('/smartwatches', (req, res) => {
-    res.send('smartwatches page');
+    res.render('productCategory');
 });
 
 router.get('/accessories', (req, res) => {
-    res.send('accessories page');
+    res.render('productCategory')
 });
 
 module.exports = router;

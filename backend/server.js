@@ -50,6 +50,8 @@ app.use('/users', usersRouter);
 
 app.use('/admin', adminRouter);
 
+app.use('/', basketRouter)
+
 app.get('/', (req, res) => {
     res.render('index');
 });
