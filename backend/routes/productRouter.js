@@ -24,6 +24,9 @@ router.get('/accessories', (req, res) => {
 
 router.get('/', async(req,res) => {
     let products = await productModel.find({})
+    products = products.toObject();
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products});
 });
 
 module.exports = router;
