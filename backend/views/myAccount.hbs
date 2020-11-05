@@ -4,10 +4,17 @@
             <h1 class="title">Online Tech Shop <a href="/basket"><img
                         src="images/basket+buy+cart+internet+online+shopping+icon.png" width="30" height="30" alt=""
                         style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
+                {{!-- {{#if not session}} --}}
                 <a href="/users/login"
                     style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
                     Login/Signup
                 </a>
+                {{!-- {{else}}
+                <a href="/users/logout"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    Logout
+                </a>
+                {{/if}} --}}
             </h1>
         </div>
         <nav class="secondary_header" id="menu">
@@ -30,6 +37,11 @@
                 <a href="/products/accessories">
                     <li>Accessories</li>
                 </a>
+                {{!-- {{#if session}}
+                <a href="/products/profile">
+                    <li>myProfile</li>
+                </a>
+                {{/if}} --}}
             </ul>
         </nav>
     </header>
