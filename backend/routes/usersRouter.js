@@ -8,12 +8,14 @@ const UserModel = require('../models/userModel');
 const {checkSignedIn} = require('../controllers/auth');
 const { response } = require('express');
 const {nanoid} = require('nanoid')
+
 router.get('/register', (req, res) => {
     res.render('register')
 });
 
 router.get('/login', (req, res) => {
     res.render('login')
+    console.log(req.session)
 });
 
 router.get('/profile', (req, res) => {
@@ -44,7 +46,7 @@ router.post('/account/create', async(req, res) => {
     // }       saved password  = 12345
 
     if (await UserModel.checkExists(email, phoneNumber)) {
-        res.send('A user with this email or phone number already exists');
+        res.render('login', {error: 'email or phone number already exists'});
         return;
     }
 
@@ -79,7 +81,7 @@ router.post('/login', async(req, res) => {
     }
 
     if (await userModel.comparePassword(email, password)) {
-        res.render('myAccount', {firstName: firstName, lastName: lastName})
+        res.redirect('/users/profile')
         req.session.userID = nanoid()
         req.session.save()
         return;
