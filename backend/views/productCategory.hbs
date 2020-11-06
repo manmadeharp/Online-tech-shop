@@ -90,16 +90,18 @@
                             <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff"
                                 alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="/products/product" title="View Product" id={{this.name}}
-                                        name="name">{{this.name}}</a>
+                                <h4 class="card-title"><a href="/products/product/{{this._id}}"
+                                        title="View Product">{{this.name}}</a>
                                 </h4>
                                 <p class="card-text">{{this.name}}</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger btn-block">this.price</p>
+                                        <p class="btn btn-danger btn-block">{{this.price}}</p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                        <a data-id="{{this._id}}" onclick="addToCart(event)"
+                                            class="btn btn-success btn-block">Add to
+                                            cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -320,4 +322,4 @@
         <div class="copyright"><strong>2020 </strong>-<strong> Online tech shop</strong> </div>
     </footer>
 </div>
-</div
+</div>
