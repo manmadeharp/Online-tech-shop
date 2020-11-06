@@ -15,6 +15,7 @@ router.get('/desktops', (req, res) => {
 
 router.get('/laptops',async (req, res) => {
     // res.render('productCategory');
+    console.log(req)
     let products = await productModel.find({category: "laptops"})
     products = products.map(product => product.toObject());
     res.render('productCategory', {products});
