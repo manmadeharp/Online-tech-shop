@@ -56,6 +56,13 @@ app.use(async (req, res, next) => {
     next()
 })
 
+// app.use(async (req, res, next) => {                              
+//     if (await sessionModel.checkSession(req.session.adminID)){
+//         res.locals.email = req.session.email
+//     }
+//     next()
+// })
+
 app.use('/products', productRouter);
 
 app.use('/users', usersRouter);
