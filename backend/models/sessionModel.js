@@ -12,7 +12,7 @@ session.statics.checkSession = async function (userID) {
             return true
         }
     }
-    return exists;
+    return false;
 }
 
 module.exports = model('sessions', session);

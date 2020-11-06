@@ -15,11 +15,12 @@ router.get('/register', (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('login')
-    console.log(req.session)
+    // console.log(req.session)
 });
 
 router.get('/profile', (req, res) => {
     res.render('myAccount');
+    console.log(req.session)
 });
 
 router.get('/users', async(req, res)=> {
@@ -34,7 +35,7 @@ router.get('/profile', checkSignedIn, async (req, res) => {
 
 router.post('/account/create', async(req, res) => {
     const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
-
+    console.log(req.body)
     if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
         res.send('Missing required information');
         return;
@@ -68,6 +69,7 @@ router.post('/account/create', async(req, res) => {
 
     user.save();
     req.session.userID = nanoid()
+    req.session.email = email
     req.session.save()
     res.redirect('/users/profile')
 });
@@ -81,9 +83,10 @@ router.post('/login', async(req, res) => {
     }
 
     if (await userModel.comparePassword(email, password)) {
-        res.redirect('/users/profile')
         req.session.userID = nanoid()
+        req.session.email = email
         req.session.save()
+        res.redirect('/users/profile')
         return;
     }
 
