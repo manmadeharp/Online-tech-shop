@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 
-const userModel = require('../models/userModel');
-const UserModel = require('../models/userModel');
+const adminModel = require('../models/adminModel'); // ask why this included twice 
+const AdminModel = require('../models/adminModel');
 
-const {checkSignedIn} = require('../controllers/auth');
+const {checkSignedIn} = require('../controllers/adminAuth');
 const { response } = require('express');
 const {nanoid} = require('nanoid')
 
@@ -19,60 +19,60 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/profile', (req, res) => {
-    res.render('myAccount');
+    res.render('myAccount'); // is this page going to be the same for admin ? Will it just have extra options
     console.log(req.session)
 });
 
 router.get('/users', async(req, res)=> {
-    const users = await UserModel.find({});
+    const admin = await Admin.find({});
 
-    res.send(users);
+    res.send(admin);
 });
 
 router.get('/profile', checkSignedIn, async (req, res) => {
-    res.render('myAccount')
+    res.render('myAccount')   // is this page going to be the same for admin ? Will it just have extra options
 })
 
-router.post('/account/create', async(req, res) => {
-    const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
-    console.log(req.body)
-    if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
-        res.send('Missing required information');
-        return;
-    }
+// router.post('/account/create', async(req, res) => { // is this needed ?
+//     const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
+//     console.log(req.body)
+//     if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
+//         res.send('Missing required information');
+//         return;
+//     }
 
-    // if (password != passwordConfirmation) {
-    //     res.send('password not equal');
-    //     return;
-    // }       saved password  = 12345
+//     // if (password != passwordConfirmation) {
+//     //     res.send('password not equal');
+//     //     return;
+//     // }       saved password  = 12345
 
-    if (await UserModel.checkExists(email, phoneNumber)) {
-        res.render('login', {error: 'email or phone number already exists'});
-        return;
-    }
+//     if (await UserModel.checkExists(email, phoneNumber)) {
+//         res.render('login', {error: 'email or phone number already exists'});
+//         return;
+//     }
 
-    let hashedpassword = await userModel.hashPassword(password);
+//     let hashedpassword = await userModel.hashPassword(password);
 
-    const user = new UserModel({
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        password: hashedpassword,
-        addressName,
-        addressNumber,
-        postcode,
-        city,
-        country,
-        role: 'User',
-    });
+//     const user = new UserModel({
+//         firstName,
+//         lastName,
+//         email,
+//         phoneNumber,
+//         password: hashedpassword,
+//         addressName,
+//         addressNumber,
+//         postcode,
+//         city,
+//         country,
+//         role: 'User',
+//     });
 
-    user.save();
-    req.session.userID = nanoid()
-    req.session.email = email
-    req.session.save()
-    res.redirect('/users/profile')
-});
+//     user.save();
+//     req.session.userID = nanoid()
+//     req.session.email = email
+//     req.session.save()
+//     res.redirect('/users/profile')
+// });
 
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;
@@ -82,12 +82,12 @@ router.post('/login', async(req, res) => {
         return;
     }
 
-    if (await userModel.comparePassword(email, password)) {
-        req.session.userID = nanoid()
-        req.session.email = email
+    if (await adminModel.comparePassword(email, password)) {
+        req.session.adminID = nanoid()
+        // req.session.email = email
         req.session.save()
         console.log(req.session)
-        res.redirect('/users/profile')
+        res.redirect('/admin/profile')
         return;
     }
 
