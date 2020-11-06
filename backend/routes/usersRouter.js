@@ -86,6 +86,7 @@ router.post('/login', async(req, res) => {
         req.session.userID = nanoid()
         req.session.email = email
         req.session.save()
+        console.log(req.session)
         res.redirect('/users/profile')
         return;
     }
