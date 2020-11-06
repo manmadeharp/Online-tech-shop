@@ -1,17 +1,24 @@
 const productModel = require('../models/productModel');
-
 const router = require('express').Router();
 
-router.get('/mobiles', (req, res) => {
-    res.render('productCategory');
+router.get('/mobiles', async(req, res) => {
+    let products = await productModel.find({category: "mobiles"})
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products});
+    console.log(products)
+    
 });
 
 router.get('/desktops', (req, res) => {
     res.render('productCategory');
 });
 
-router.get('/laptops', (req, res) => {
-    res.render('productCategory');
+router.get('/laptops',async (req, res) => {
+    // res.render('productCategory');
+    let products = await productModel.find({category: "laptops"})
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products});
+    // console.log(products)
 });
 
 router.get('/smartwatches', (req, res) => {
@@ -22,12 +29,23 @@ router.get('/accessories', (req, res) => {
     res.render('productCategory')
 });
 
+router.get('/product/:id', async (req, res) => {
+    name = req.body.name
+    console.log(name)
+    let product = await productModel.find({name})
+    product = product.map(product => product.toObject());
+    res.render('productPage' /*product*/)
+    
+})
+
 router.get('/', async(req,res) => {
     let products = await productModel.find({})
     // products = products.toObject();
     products = products.map(product => product.toObject());
     res.render('productCategory', {products});
 });
+
+router.post
 
 router.post('/create', async (req,res) => {
     //  get data from the form

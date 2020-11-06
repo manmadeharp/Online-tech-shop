@@ -7,6 +7,8 @@ const mongoose  = require('mongoose');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
+const sessionModel = require('./models/sessionModel')
+
 const productRouter = require('./routes/productRouter')
 const usersRouter = require('./routes/usersRouter')
 const basketRouter = require('./routes/basketRouter')
@@ -40,9 +42,19 @@ app.use(session({
         secure: false, //process.env.IN_PROD
         sameSite: true,
         maxAge: 1000 * 60 * 60 * 2 // 2 hours
+    },
+    basket: {
+        
     }
 }));
 
+app.use(async (req, res, next) => {
+    // console.log(await sessionModel.checkSession(req.session.userID))
+    if (await sessionModel.checkSession(req.session.userID)){
+        res.locals.email = req.session.email
+    }
+    next()
+})
 
 app.use('/products', productRouter);
 
@@ -58,7 +70,7 @@ app.get('/', (req, res) => {
 
 
 
-const port = process.env.PORT || 8000 
+const port = process.env.PORT || 8444
 
 app.listen(port, ()=> {
     console.log(`Server is tunning on port ${port}`);
