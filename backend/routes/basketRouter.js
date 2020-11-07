@@ -6,7 +6,8 @@ router.get('/basket', (req, res) => {
 });
 
 router.post('/basket', (req, res) => {
-    //
+    console.log(req.body._id)
+    
     /*
     if(!req.session.hasOwnProperty('basket')) {
         req.session.basket = {}

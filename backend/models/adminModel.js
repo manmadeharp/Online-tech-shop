@@ -7,11 +7,11 @@ const admin = new Schema({
     email: {type: String, required: true, unique: true},
     phoneNumber: {type: String, required: false, unique: true},
     password: {type: String, required: true},
-    AddressName: {type: String, required: true}, 
-    AddressNumber: {type: String, required: true}, 
-    Postcode: {type: String, required: true}, 
-    City: {type: String, required: true}, 
-    Country: {type: String, required: true},
+    addressName: {type: String, required: true}, 
+    addressNumber: {type: String, required: true}, 
+    postcode: {type: String, required: true}, 
+    city: {type: String, required: true}, 
+    country: {type: String, required: true},
     role: {type: String, required: true}
 });
 
