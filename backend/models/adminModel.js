@@ -15,8 +15,9 @@ const admin = new Schema({
     role: {type: String, required: true}
 });
 
-admin.statics.checkExists = async function (email, phoneNumber) {
-    const exists = await this.exists({$or: [{email}, {phoneNumber}]});
+admin.statics.checkExists = async function (email) {
+    console.log(email)
+    const exists = await this.exists({$or: [{email}]});
 
     return exists;
 }
@@ -38,6 +39,13 @@ admin.statics.comparePassword = async function (email, attemptedPassword) {
     let result = await bcrypt.compare(attemptedPassword, admin.password);
 
     return result;
+}
+admin.statics.checkRole = async function (email, role) {
+    let admin = await this.exists({email}, {role});
+
+    if (!admin) {
+        return false;
+    }
 }
 
 module.exports = model('admins', admin)

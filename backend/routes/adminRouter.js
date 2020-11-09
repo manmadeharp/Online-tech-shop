@@ -37,15 +37,59 @@ router.get('/orders', checkSignedIn, async (req, res) => {
     res.render('viewOrders')
 })
 
-router.post('/login', async(req, res) => {
-    let {email, password} = req.body;
-
-    if (!await UserModel.checkExists(email)) {
-        res.render('login', {error: 'no email exist'})
+router.post('/account/create', async(req, res) => {
+    const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
+    console.log(req.body)
+    if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
+        res.send('Missing required information');
         return;
     }
 
-    if (await adminModel.comparePassword(email, password)) {
+    // if (password != passwordConfirmation) {
+    //     res.send('password not equal');
+    //     return;
+    // }       saved password  = 12345
+
+    if (await AdminModel.checkExists(email, phoneNumber)) {
+        res.render('register', {error: 'email or phone number already exists'});
+        return;
+    }
+
+    let hashedpassword = await adminModel.hashPassword(password);
+
+    const admin = new AdminModel({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        password: hashedpassword,
+        addressName,
+        addressNumber,
+        postcode,
+        city,
+        country,
+        role: 'Admin',
+    });
+    admin.save()
+});
+
+router.post('admin/login', async(req, res) => {
+    let {email, password} = req.body;
+    console.log(hello)
+    console.log(email)
+    let role = 'Admin'
+    // if (!await AdminModel.checkExists(email)) {
+    //     console.log(email)
+    //     res.render('login', {error: 'no email exist'})
+    //     return;
+    // }
+    
+    if (!await AdminModel.checkRole(email, role)) {
+        res.render('login', {error: 'this is not an admin profile'})
+        return;
+    }
+
+    if (await AdminModel.comparePassword(email, password)) {
         req.session.adminID = nanoid()
         // req.session.email = email
         req.session.save()

@@ -11,9 +11,6 @@ router.get('/basket', (req, res) => {
 
 router.post('/basket/remove', (req, res) => {
     let _id = req.body._id
-    console.log(_id)
-    console.log(req.session.basket)
-    console.log('test')
     delete req.session.basket[_id]
     console.log(req.session.basket)
     res.render('basket', {basket: req.session.basket}); 

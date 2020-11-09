@@ -15,8 +15,8 @@ const user = new Schema({
     role: {type: String, required: true}
 });
 
-user.statics.checkExists = async function (email, phoneNumber) {
-    const exists = await this.exists({$or: [{email}, {phoneNumber}]});
+user.statics.checkExists = async function (email) {
+    const exists = await this.exists({$or: [{email}]});
 
     return exists;
 }
@@ -24,7 +24,7 @@ user.statics.checkExists = async function (email, phoneNumber) {
 user.statics.hashPassword = async function (password) {
     let hash = await bcrypt.hash(password, 12);
     console.log(hash);
-
+    
     return hash;
 }
 
