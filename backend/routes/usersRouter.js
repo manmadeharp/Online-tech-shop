@@ -7,7 +7,8 @@ const UserModel = require('../models/userModel');
 
 const {checkSignedIn} = require('../controllers/auth');
 const { response } = require('express');
-const {nanoid} = require('nanoid')
+const {nanoid} = require('nanoid');
+const { connection } = require('mongoose');
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -20,7 +21,7 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('myAccount');
-    console.log(req.session)
+    // console.log(req.session)
 });
 
 router.get('/users', async(req, res)=> {
@@ -86,11 +87,10 @@ router.post('/login', async(req, res) => {
         req.session.userID = nanoid()
         req.session.email = email
         req.session.save()
-        console.log(req.session)
         res.redirect('/users/profile')
         return;
     }
-
+   
     res.send('You have eneterd the wrong password');
 });
 

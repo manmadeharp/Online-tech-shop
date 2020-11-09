@@ -1,10 +1,9 @@
 const {Schema, model} = require('mongoose');
 
 const order = new Schema({
-    products: {type: Array, required: true},
+    orderList: {type: Array, required: true},
     totalPrice: {type: Number, required: true},
-    stockAvailability: {type: Number, required: true},
-    
+    //add user address here
 },{
     toObject:{
         virtuals: true

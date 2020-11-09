@@ -1,6 +1,22 @@
 async function addToCart (event)  {
     let _id = event.target.dataset.id
-    fetch('/basket',
+    await fetch('/basket',
+        {
+          method: "POST",
+          body: JSON.stringify({_id}),
+          headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        
+        
+      
+    console.log(_id)
+} 
+
+async function removeFromCart (event)  {
+    let _id = event.target.dataset.id
+    await fetch('/basket/remove',
         {
           method: "POST",
           body: JSON.stringify({_id}),
@@ -9,13 +25,7 @@ async function addToCart (event)  {
             }
         })
         .then((res) => {
-        
-          return res.json();
-       
-          console.log(res)
-        
-      }).then((json) => {
-        console.log(json);
+            location.reload()
       })
         
       

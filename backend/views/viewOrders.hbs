@@ -1,0 +1,168 @@
+<div class="region">
+    <header>
+        <!-- nav -->
+        <div class="primary_header">
+            <h1 class="title">Online Tech Shop <a href="/basket">
+                    <img src="C:\Users\finbar\OneDrive\Online-tech-shop\backend\public\images/basket+buy+cart+internet+online+shopping+icon.png"
+                        width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
+                {{#if email}}
+                <a href="/users/profile"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    {{email}}
+                </a>
+                {{else}}
+                <a href="/users/login"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    Login/Signup
+                </a>
+                {{/if}}
+            </h1>
+        </div>
+
+        <nav class="secondary_header" id="menu">
+            <ul>
+                <a href="/">
+                    <li>Home</li>
+                </a>
+                <a href="/products/laptops">
+                    <li>Laptops</li>
+                </a>
+                <a href="/products/desktops">
+                    <li>Desktops</li>
+                </a>
+                <a href="/products/mobiles">
+                    <li>mobiles</li>
+                </a>
+                <a href="/products/smartwatches">
+                    <li>Smartwatches</li>
+                </a>
+                <a href="/products/accessories">
+                    <li>Accessories</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <br>
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                    <!--REVIEW ORDER-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <h4>Review Order</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <strong>Subtotal (# item)</strong>
+                                <div class="pull-right"><span>$</span><span>200.00</span></div>
+                            </div>
+                            <div class="col-md-12">
+                                <strong>Tax</strong>
+                                <div class="pull-right"><span>$</span><span>200.00</span></div>
+                            </div>
+                            <div class="col-md-12">
+                                <small>Shipping</small>
+                                <div class="pull-right"><span>-</span></div>
+                                <hr>
+                            </div>
+                            <div class="col-md-12">
+                                <strong>Order Total</strong>
+                                <div class="pull-right"><span>$</span><span>150.00</span></div>
+                                <hr>
+                            </div>
+
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+
+                        </div>
+
+                    </div>
+                    <!--REVIEW ORDER END-->
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                    <!--SHIPPING METHOD-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <h4>Current Cart</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table borderless">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Your Cart: # item</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                    <tr>
+                                        <td class="col-md-3">
+                                            <div class="media">
+                                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                                        src="http://lorempixel.com/460/250/"
+                                                        style="width: 72px; height: 72px;"> </a>
+                                                <div class="media-body">
+                                                    <h5 class="media-heading"> Product Name</h5>
+                                                    <h5 class="media-heading"> Product Code</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">$10.99</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">$32.99</td>
+                                        <td class="text-right"><button type="button"
+                                                class="btn btn-danger">Remove</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-3">
+                                            <div class="media">
+                                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                                        src="http://lorempixel.com/460/250/"
+                                                        style="width: 72px; height: 72px;"> </a>
+                                                <div class="media-body">
+                                                    <h5 class="media-heading"> Product Name</h5>
+                                                    <h5 class="media-heading"> Product Code</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">$10.99</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right"> $32.99</td>
+                                        <td class="text-right"><button type="button"
+                                                class="btn btn-danger">Remove</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--SHIPPING METHOD END-->
+                </div>
+            </div>
+        </div>
+    </div>>
+
+    <!-- footer -->
+    <div class="row blockDisplay">
+        <div class="column_half left_half">
+            <h2 class="column_title">LEFT COLUMN</h2>
+        </div>
+        <div class="column_half right_half">
+            <h2 class="column_title">RIGHT COLUMN</h2>
+        </div>
+    </div>
+    <div class="social">
+        <p>Footer</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+    </div>
+    <footer class="secondary_header footer">
+        <div class="copyright"><strong>2020 </strong>-<strong> Online tech shop</strong> </div>
+    </footer>
+</div>

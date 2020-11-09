@@ -1,6 +1,6 @@
 const productModel = require('../models/productModel');
 const router = require('express').Router();
-
+const orderModel = require('../models/orderModel')
 router.get('/mobiles', async(req, res) => {
     let products = await productModel.find({category: "mobiles"})
     products = products.map(product => product.toObject());
@@ -11,6 +11,7 @@ router.get('/mobiles', async(req, res) => {
 
 router.get('/desktops', (req, res) => {
     res.render('productCategory');
+     console.log(req.session)
 });
 
 router.get('/laptops',async (req, res) => {
@@ -31,12 +32,12 @@ router.get('/accessories', (req, res) => {
 });
 
 
-router.get('/', async(req,res) => {
-    let products = await productModel.find({})
-    // products = products.toObject();
-    products = products.map(product => product.toObject());
-    res.render('productCategory', {products});
-});
+// router.get('/', async(req,res) => {
+//     let products = await productModel.find({})
+//     // products = products.toObject();
+//     products = products.map(product => product.toObject());
+//     res.render('productCategory', {products});
+// });
 
 router.post('/create', async (req,res) => {
     //  get data from the form
@@ -71,5 +72,5 @@ router.get('/product/:id', async (req, res) => {
     res.render('productPage', {product})
     
 })
-
+ 
 module.exports = router;

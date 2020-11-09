@@ -1,13 +1,21 @@
 <div class="region">
     <header>
         <div class="primary_header">
-            <h1 class="title">Online Tech Shop <a href="/basket"><img
-                        src="images/basket+buy+cart+internet+online+shopping+icon.png" width="30" height="30" alt=""
-                        style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
+            <h1 class="title">Online Tech Shop
+                <a href="/basket">
+                    <img src="C:/Users/finbar/OneDrive/Online-tech-shop/backend/public/images/basket+buy+cart+internet+online+shopping+icon.png"
+                        width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
+                {{#if email}}
+                <a href="/users/profile"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    {{email}}
+                </a>
+                {{else}}
                 <a href="/users/login"
                     style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
                     Login/Signup
                 </a>
+                {{/if}}
             </h1>
         </div>
         <nav class="secondary_header" id="menu">
@@ -43,22 +51,24 @@
                 <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
                 <div class="clearfix"></div>
             </div>
+
             <div class="card-body">
                 <!-- PRODUCT -->
+                {{#each basket}}
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-2 text-center">
                         <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120"
                             height="80">
                     </div>
                     <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                        <h4 class="product-name"><strong>Product Name</strong></h4>
+                        <h4 class="product-name"><strong>{{this.name}}</strong></h4>
                         <h4>
-                            <small>Product description</small>
+                            <small>{{@key}}</small>
                         </h4>
                     </div>
                     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                         <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                            <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+                            <h6><strong><span class="text-muted"></span></strong></h6>
                         </div>
                         <div class="col-4 col-sm-4 col-md-4">
                             <div class="quantity">
@@ -69,16 +79,18 @@
                             </div>
                         </div>
                         <div class="col-2 col-sm-2 col-md-2 text-right">
-                            <button type="button" class="btn btn-outline-danger btn-xs">
+                            <button {{!--type="button" --}} class="btn btn-outline-danger btn-xs" data-id="{{@key}}"
+                                onclick="removeFromCart(event)">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 <hr>
+                {{/each}}
                 <!-- END PRODUCT -->
                 <!-- PRODUCT -->
-                <div class="row">
+                {{!-- <div class="row">
                     <div class="col-12 col-sm-12 col-md-2 text-center">
                         <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120"
                             height="80">
@@ -108,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr> --}}
                 <!-- END PRODUCT -->
                 <div class="pull-right">
                     <a href="" class="btn btn-outline-secondary pull-right">

@@ -5,7 +5,7 @@ exports.checkSignedIn = (async (req, res, next) =>{
         next();  //
         return
     }
-    res.send('you must login to access this page')
+    res.send('you must login as an admin to access this page')
 
 })
 

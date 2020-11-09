@@ -18,10 +18,9 @@ router.get('/login', (req, res) => {
     // console.log(req.session)
 });
 
-router.get('/profile', (req, res) => {
-    res.render('myAccount'); // is this page going to be the same for admin ? Will it just have extra options
-    console.log(req.session)
-});
+// router.get('/profile', (req, res) => {
+//     res.render('myAccount');
+// });
 
 router.get('/users', async(req, res)=> {
     const admin = await Admin.find({});
@@ -30,49 +29,13 @@ router.get('/users', async(req, res)=> {
 });
 
 router.get('/profile', checkSignedIn, async (req, res) => {
-    res.render('myAccount')   // is this page going to be the same for admin ? Will it just have extra options
+    console.log(req.session)
+    res.render('myAccount')  
 })
 
-// router.post('/account/create', async(req, res) => { // is this needed ?
-//     const {firstName, lastName, email, phoneNumber, password, passwordConfirmation, addressName, addressNumber, postcode, city, country} = req.body;
-//     console.log(req.body)
-//     if (!firstName || !lastName || !email || !password || !phoneNumber || /*!passwordConfirmation ||*/ !addressName || !addressNumber || !postcode || !city || !country) {
-//         res.send('Missing required information');
-//         return;
-//     }
-
-//     // if (password != passwordConfirmation) {
-//     //     res.send('password not equal');
-//     //     return;
-//     // }       saved password  = 12345
-
-//     if (await UserModel.checkExists(email, phoneNumber)) {
-//         res.render('login', {error: 'email or phone number already exists'});
-//         return;
-//     }
-
-//     let hashedpassword = await userModel.hashPassword(password);
-
-//     const user = new UserModel({
-//         firstName,
-//         lastName,
-//         email,
-//         phoneNumber,
-//         password: hashedpassword,
-//         addressName,
-//         addressNumber,
-//         postcode,
-//         city,
-//         country,
-//         role: 'User',
-//     });
-
-//     user.save();
-//     req.session.userID = nanoid()
-//     req.session.email = email
-//     req.session.save()
-//     res.redirect('/users/profile')
-// });
+router.get('/orders', checkSignedIn, async (req, res) => {
+    res.render('viewOrders')
+})
 
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;

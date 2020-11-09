@@ -5,7 +5,6 @@ const product = new Schema({
     name: {type: String, required: true},
     price: {type: Number, required: true},
     stockAvailability: {type: Number, required: true},
-    
 },{
     toObject:{
         virtuals: true
