@@ -5,10 +5,13 @@ const session = new Schema ({
     session: {type: String}
 })
 
-session.statics.checkSession = async function (userID) {
+session.statics.checkSession = async function (ID) {
     let sessions = await this.find({})
     for (let session of sessions) {
-        if(JSON.parse(session.session).userID == userID){
+        if(JSON.parse(session.session).userID == ID){
+            return true
+        }
+        if (JSON.parse(session.session).adminID == ID) {
             return true
         }
     }
