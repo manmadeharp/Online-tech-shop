@@ -41,7 +41,7 @@ admin.statics.comparePassword = async function (email, attemptedPassword) {
     return result;
 }
 admin.statics.checkRole = async function (email, role) {
-    let admin = await this.exists({email}, {role});
+    let admin = await this.exists({$or: [{email}, {role}]});
 
     if (!admin) {
         return false;

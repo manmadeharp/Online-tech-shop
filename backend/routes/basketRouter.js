@@ -8,6 +8,7 @@ router.get('/basket', (req, res) => {
     let total = calculateTotal(req.session.basket)
     
     res.render('basket', {basket: req.session.basket, total: total} );
+
 });
 
 router.post('/basket/remove', (req, res) => {
@@ -40,31 +41,10 @@ router.post('/basket', async (req, res) => {
     }
     else{
         req.session.basket[_id].quantity += 1
-        // req.session.basket[_id].test = 'test2'
     }
-    req.session.basket
-    console.log(req.session.basket)
+    let total = calculateTotal(req.session.basket)
+    req.session.basket.total = total
     req.session.save()
-    // console.log(req.session.basket)
-    /*
-    
-    req.session.basket[_id] = {name}
-    
-    req.session.basket =
-    {
-        13434441: {
-            name: dell
-            price: 3400
-            quantity: 100
-        },
-        13441345: {
-            name: apple
-            price: 35555400
-            quantity: 1
-        }
-    }
-
-    */
 })
 router.get('/checkout', (req, res)=>{
     // const product = new orderModel({

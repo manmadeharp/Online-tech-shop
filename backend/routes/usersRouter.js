@@ -21,7 +21,7 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('myAccount');
-    // console.log(req.session)
+    console.log(req.session)
 });
 
 router.get('/users', async(req, res)=> {
@@ -81,7 +81,7 @@ router.post('/account/create', async(req, res) => {
 
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;
-
+     console.log('hello')
     if (!await UserModel.checkExists(email)) {
         res.render('login', {error: 'no email exist'})
         return;

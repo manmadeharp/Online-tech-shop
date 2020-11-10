@@ -24,7 +24,6 @@ app.use(bodyParser.json());
 app.engine('.hbs', hbs({
     extname: '.hbs',
     defaultLayout: 'layout'
-
 }));
 
 app.set('view engine', '.hbs');
@@ -52,6 +51,12 @@ app.use(async (req, res, next) => {
     // console.log(await sessionModel.checkSession(req.session.userID))
     if (await sessionModel.checkSession(req.session.userID)){
         res.locals.email = req.session.email
+    }
+    if (req.session.userID) {
+        res.locals.isuserID = true
+    }
+    if (req.session.adminID) {
+        res.locals.isadminID = true
     }
     next()
 })
