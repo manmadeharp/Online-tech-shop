@@ -37,17 +37,24 @@ router.get('/orders', checkSignedIn, async (req, res) => {
     res.render('viewOrders')
 })
 
+
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;
-
-    if (!await AdminModel.checkExists(email)) {
-        res.render('login', {error: 'no email exist'})
+    let role = 'Admin'
+     if (!await AdminModel.checkExists(email)) {  
+         console.log(email)
+         res.render('login', {error: 'no email exist'})
+        return;
+     }
+    
+    if (!await AdminModel.checkRole(email, role)) {
+        res.render('login', {error: 'this is not an admin profile'})
         return;
     }
 
     if (await adminModel.comparePassword(email, password)) {
         req.session.adminID = nanoid()
-        // req.session.email = email
+        req.session.email = email
         req.session.save()
         console.log(req.session)
         res.redirect('/admin/profile')

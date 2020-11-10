@@ -1,7 +1,6 @@
 ## To Do:
 
 - products and basket:
-  if a product is clicked return the data of that product and load the productpage with the singular product chosen
   add product to basket and save to session
   save orders to database once purchased
   add stripe to checkout

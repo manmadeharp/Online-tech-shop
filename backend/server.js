@@ -24,7 +24,6 @@ app.use(bodyParser.json());
 app.engine('.hbs', hbs({
     extname: '.hbs',
     defaultLayout: 'layout'
-
 }));
 
 app.set('view engine', '.hbs');
