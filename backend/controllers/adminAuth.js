@@ -1,6 +1,7 @@
 const SessionModel = require('../models/sessionModel')
 const router = require('../routes/adminRouter')
 exports.checkSignedIn = (async (req, res, next) =>{
+    console.log(req.session.adminID);
     if (await SessionModel.checkSession(req.session.adminID)){
         next();  //
         return
