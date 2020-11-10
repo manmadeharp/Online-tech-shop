@@ -28,7 +28,7 @@ router.get('/users', async(req, res)=> {
     res.send(admin);
 });
 
-router.get('/profile', checkSignedIn, async (req, res) => {
+router.get('/profile', async (req, res) => {
     console.log(req.session)
     res.render('myAccount')  
 })

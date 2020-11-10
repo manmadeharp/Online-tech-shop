@@ -48,7 +48,7 @@
             <div class="card-header bg-dark text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Shipping cart
-                <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+                <a href=""></a>
                 <div class="clearfix"></div>
             </div>
 
@@ -63,7 +63,7 @@
                     <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
                         <h4 class="product-name"><strong>{{this.name}}</strong></h4>
                         <h4>
-                            <small>{{@key}}</small>
+                            <small>£{{this.price}}</small>
                         </h4>
                     </div>
                     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
@@ -72,10 +72,12 @@
                         </div>
                         <div class="col-4 col-sm-4 col-md-4">
                             <div class="quantity">
-                                <input type="button" value="+" class="plus">
-                                <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                    size="4">
-                                <input type="button" value="-" class="minus">
+                                <input type="button" data-id="{{@key}}" onclick="increaseQuantity(event)" value="+"
+                                    class="plus">
+                                <input type="number" step="1" max="99" min="1" value="{{this.quantity}}" title="Qty"
+                                    class="qty" size="4">
+                                <input type="button" data-id="{{@key}}" onclick="decreaseQuantity(event)" value="-"
+                                    class="minus">
                             </div>
                         </div>
                         <div class="col-2 col-sm-2 col-md-2 text-right">
@@ -129,11 +131,10 @@
                 </div>
             </div>
             <div class="card-footer">
-
                 <div class="pull-right" style="margin: 10px">
-                    <a href="/checkout" class="btn btn-success pull-right">Checkout</a>
+                    <a href="/checkout" class="btn btn-success pull-right" onclick="">Checkout</a>
                     <div class="pull-right" style="margin: 5px">
-                        Total price: <b>50.00€</b>
+                        Total price: <b>£{{total}}</b>
                     </div>
                 </div>
             </div>

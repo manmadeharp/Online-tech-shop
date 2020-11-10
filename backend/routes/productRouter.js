@@ -70,7 +70,6 @@ router.get('/product/:id', async (req, res) => {
     let product = await productModel.findOne({_id})
     product = product.toObject()
     res.render('productPage', {product})
-    
 })
  
 module.exports = router;

@@ -1,0 +1,154 @@
+<div class="region">
+    <header>
+        <!-- nav -->
+        <div class="primary_header">
+            <h1 class="title">Online Tech Shop <a href="/basket">
+                    <img src="C:\Users\finbar\OneDrive\Online-tech-shop\backend\public\images/basket+buy+cart+internet+online+shopping+icon.png"
+                        width="30" height="30" alt="" style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
+                {{#if email}}
+                <a href="/users/profile"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    {{email}}
+                </a>
+                {{else}}
+                <a href="/users/login"
+                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
+                    Login/Signup
+                </a>
+                {{/if}}
+            </h1>
+        </div>
+
+        <nav class="secondary_header" id="menu">
+            <ul>
+                <a href="/">
+                    <li>Home</li>
+                </a>
+                <a href="/products/laptops">
+                    <li>Laptops</li>
+                </a>
+                <a href="/products/desktops">
+                    <li>Desktops</li>
+                </a>
+                <a href="/products/mobiles">
+                    <li>mobiles</li>
+                </a>
+                <a href="/products/smartwatches">
+                    <li>Smartwatches</li>
+                </a>
+                <a href="/products/accessories">
+                    <li>Accessories</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- body -->
+
+    <div class="col-md-9" style="width: 100%;">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Your Profile</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">First Name</label>
+                                <div class="col-8">
+                                    <input id="name" name="name" placeholder="First Name" class="form-control here"
+                                        type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Last Name</label>
+                                <div class="col-8">
+                                    <input id="lastname" name="lastname" placeholder="Last Name"
+                                        class="form-control here" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Email</label>
+                                <div class="col-8">
+                                    <input id="email" name="email" placeholder="Email" class="form-control here"
+                                        required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Email</label>
+                                <div class="col-8">
+                                    <input id="email" name="email" placeholder="Email" class="form-control here"
+                                        required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="select" class="col-4 col-form-label">View Your Orders</label>
+                                <div class="col-8">
+                                    <a href="/users/orders" class="btn  btn-block"
+                                        style="color: azure; background-color: #52bad5; ">View
+                                        Orders</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Address Details:</label>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="website" class="col-4 col-form-label">Website</label>
+                                <div class="col-8">
+                                    <input id="website" name="website" placeholder="website" class="form-control here"
+                                        type="text">
+                                </div>
+                            </div>
+                            {{!-- <div class="form-group row">
+                                <label for="publicinfo" class="col-4 col-form-label">Public Info</label>
+                                <div class="col-8">
+                                    <textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
+                                        class="form-control"></textarea>
+                                </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <label for="newpass" class="col-4 col-form-label">New Password</label>
+                                <div class="col-8">
+                                    <input id="newpass" name="newpass" placeholder="New Password"
+                                        class="form-control here" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                    <button name="submit" type="submit" class="btn btn-primary">Update My
+                                        Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="row blockDisplay">
+        <div class="column_half left_half">
+            <h2 class="column_title">LEFT COLUMN</h2>
+        </div>
+        <div class="column_half right_half">
+            <h2 class="column_title">RIGHT COLUMN</h2>
+        </div>
+    </div>
+    <div class="social">
+        <p>Footer</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+        <p class="social_icon">&nbsp;</p>
+    </div>
+    <footer class="secondary_header footer">
+        <div class="copyright"><strong>2020 </strong>-<strong> Online tech shop</strong> </div>
+    </footer>
+</div>
