@@ -2,7 +2,7 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const express = require('express');
 const app = express();
 app.use(express.static('.'));
-const YOUR_DOMAIN = 'http://localhost:4242';
+const YOUR_DOMAIN = 'http://localhost:8444';
 app.post('/create-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
