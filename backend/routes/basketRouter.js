@@ -45,13 +45,13 @@ router.post('/basket', async (req, res) => {
     req.session.save()
 })
 router.get('/checkout', (req, res)=>{
-    // const product = new orderModel({
-    //     orderList: req.session.basket,
-    //     totalPrice: 500
-    // });
+    const product = new orderModel({
+        orderList: req.session.checkout,
+        totalPrice: 500
+    });
 
-    // product.save();
-    res.send('checkout page')
+    product.save();
+    res.render('checkout', {checkout: req.session.checkout})
 })
 
 module.exports = router;

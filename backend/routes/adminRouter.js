@@ -14,7 +14,7 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('adminLogin')                 //admin change 1
     // console.log(req.session)
 });
 
@@ -40,21 +40,19 @@ router.get('/orders', checkSignedIn, async (req, res) => {
 
 router.post('/login', async(req, res) => {
     let {email, password} = req.body;
-    // console.log('hello')
-    console.log(email)
     let role = 'Admin'
-    // if (!await AdminModel.checkExists(email)) {
-    //     console.log(email)
-    //     res.render('login', {error: 'no email exist'})
-    //     return;
-    // }
+     if (!await AdminModel.checkExists(email)) {  
+         console.log(email)
+         res.render('login', {error: 'no email exist'})
+        return;
+     }
     
     if (!await AdminModel.checkRole(email, role)) {
         res.render('login', {error: 'this is not an admin profile'})
         return;
     }
 
-    if (await AdminModel.comparePassword(email, password)) {
+    if (await adminModel.comparePassword(email, password)) {
         req.session.adminID = nanoid()
         req.session.email = email
         req.session.save()

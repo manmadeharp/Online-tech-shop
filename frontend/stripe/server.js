@@ -20,6 +20,29 @@ app.post("/create-payment-intent", async (req, res) => {
   });
   res.send({
     clientSecret: paymentIntent.client_secret
+
+app.use(express.static('.'));
+const YOUR_DOMAIN = 'http://localhost:8444';
+app.post('/create-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+
   });
 });
 app.listen(4242, () => console.log('Node server listening on port 4242!'));;
