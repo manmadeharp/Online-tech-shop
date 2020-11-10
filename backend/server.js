@@ -12,6 +12,7 @@ const sessionModel = require('./models/sessionModel')
 const productRouter = require('./routes/productRouter')
 const usersRouter = require('./routes/usersRouter')
 const basketRouter = require('./routes/basketRouter')
+// const checkoutRouter = require('./routes/checkoutRouter')
 const adminRouter = require('./routes/adminRouter')
 require('dotenv').config(); // now we can use dotenv to run our server
 
