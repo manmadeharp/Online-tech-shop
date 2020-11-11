@@ -47,10 +47,10 @@ router.post('/login', async(req, res) => {
         return;
      }
     
-    if (!await AdminModel.checkRole(email, role)) {
-        res.render('adminlogin', {error: 'this is not an admin profile'})
-        return;
-    }
+    // if (!await AdminModel.checkRole(email, role)) {
+    //     res.render('adminlogin', {error: 'this is not an admin profile'})
+    //     return;
+    // }
 
     if (await adminModel.comparePassword(email, password)) {
         req.session.adminID = nanoid()
