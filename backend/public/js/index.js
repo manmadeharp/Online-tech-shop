@@ -41,6 +41,7 @@ var stripe = Stripe("pk_test_51HmFuBIepdJVzFGkGUfKijTUJJgZaAD298BWMauq1uqzTZ23YI
     checkoutButton.addEventListener("click", function () {
       fetch("/create-session", {
         method: "POST",
+        
       })
         .then(function (response) {
           return response.json();

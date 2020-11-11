@@ -42,28 +42,7 @@ mongoose.connect('mongodb+srv://root:password1234@cluster0.voeb0.mongodb.net/<db
 
 const YOUR_DOMAIN = 'http://localhost:8444';
 
-app.post('/create-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: [
-      {
-        price_data: {
-          currency: 'gbp',
-          product_data: {
-            name: 'Stubborn Attachments',
-            images: ['https://i.imgur.com/EHyR2nP.png'],
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
-  });
-  res.json({ id: session.id });
-}); 
+
 
 app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection}),
@@ -111,29 +90,81 @@ app.get('/', (req, res) => {
 });
 
 
-// const YOUR_DOMAIN = 'http://localhost:8444';
+const addToStripe = (basket) => {
+  let items = []
+  let i = 0;
+  console.log(basket)
+  for (const [key] of Object.entries(basket)) {
+        if(key == 'total') {
+            continue
+        }
+        items[i] = [
+          {
+            price_data: {
+              currency: 'gbp',
+              product_data: {
+                name: 'Stubborn Attachments',
+                images: ['https://i.imgur.com/EHyR2nP.png'],
+              },
+              unit_amount: total,
+            },
+            quantity: 1,
+          },
+        ]
+        console.log(items)
+        i++
+      }
+      
+}
+
 app.post('/create-session', async (req, res) => {
+  const YOUR_DOMAIN = 'http://localhost:8444';
+  const basket = req.session.basket
+  console.log(basket)
+  total = req.session.basket.total*100
+  addToStripe(req.session.basket)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: [
-      {
+    line_items: items,
+    
+    /*[
+
+      5fa414a6325f0fa227d0f352: {
         price_data: {
-          currency: 'usd',
+          currency: 'gbp',
           product_data: {
             name: 'Stubborn Attachments',
             images: ['https://i.imgur.com/EHyR2nP.png'],
           },
-          unit_amount: 2000,
+          unit_amount: total,
         },
         quantity: 1,
       },
+
     ],
+    [
+
+      5fa42832f00ec2a3ce4252d1: {
+        price_data: {
+          currency: 'gbp',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: total,
+        },
+        quantity: 1,
+      },
+
+    ],    
+    */
+    
     mode: 'payment',
-    success_url: `http://localhost:8444/success`,
-    cancel_url: `http://localhost:8444/products/laptops`,
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
   });
   res.json({ id: session.id });
-});
+}); ;
 
 
 
