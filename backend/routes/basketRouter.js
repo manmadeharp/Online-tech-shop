@@ -66,13 +66,20 @@ router.post('/basket', async (req, res) => {
     */
 })
 router.get('/checkout', (req, res)=>{
-    const product = new orderModel({
-        orderList: req.session.checkout,
-        totalPrice: 500
-    });
+    // const product = new orderModel({
+    //     orderList: req.session.checkout,
+    //     totalPrice: 500
+    // });
 
-    product.save();
+    // product.save();
     res.render('checkout', {checkout: req.session.checkout})
 })
+
+
+router.get('/success', (req, res)=>{
+
+    res.render('success', {checkout: req.session.success})
+})
+
 
 module.exports = router;

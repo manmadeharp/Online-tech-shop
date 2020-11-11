@@ -83,3 +83,31 @@ app.listen(port, ()=> {
     console.log(`Server is tunning on port ${port}`);
     
 });
+
+const stripe = require('stripe')('sk_test_51HloaaB749D18Qgjs4tzXrG2N7h6R6JyrYre9vc1ie24ufcOMtPwzUIpLTh4zJonaaFlFSAgyuftHbIJXbIkA6pc00SzKjBFwG');
+
+
+
+// const YOUR_DOMAIN = 'http://localhost:8444';
+app.post('/create-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `http://localhost:8444/success`,
+    cancel_url: `http://localhost:8444/products/laptops`,
+  });
+  res.json({ id: session.id });
+});
