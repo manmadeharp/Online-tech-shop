@@ -4,7 +4,7 @@ const productModel = require('../models/productModel')
 const calculateTotal = require('../lib/basketmod')
 
 router.get('/basket', (req, res) => {
-    console.log(req.session.basket)
+    // console.log(req.session.basket)
     if(!req.hasOwnProperty('session')){
         res.render('basket')
         return

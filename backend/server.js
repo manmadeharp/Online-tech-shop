@@ -16,7 +16,8 @@ const productRouter = require('./routes/productRouter')
 const usersRouter = require('./routes/usersRouter')
 const basketRouter = require('./routes/basketRouter')
 // const checkoutRouter = require('./routes/checkoutRouter')
-const adminRouter = require('./routes/adminRouter')
+const adminRouter = require('./routes/adminRouter');
+const router = require('./routes/productRouter');
 require('dotenv').config(); // now we can use dotenv to run our server
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -24,9 +25,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-// router.post('/checkout', (req, res) => {
-    
-// })
 
 app.engine('.hbs', hbs({
     extname: '.hbs',
@@ -92,37 +90,39 @@ app.get('/', (req, res) => {
 
 const addToStripe = (basket) => {
   let items = []
-  let i = 0;
+  
+  // console.log('basket')
   console.log(basket)
-  for (const [key] of Object.entries(basket)) {
-        if(key == 'total') {
+  
+  // console.dir(test.test)
+  for (const [id, product] of Object.entries(basket)) {
+        if(id == 'total') {
             continue
         }
-        items[i] = [
+        items.push(  
           {
             price_data: {
               currency: 'gbp',
               product_data: {
-                name: 'Stubborn Attachments',
+                name: product.name,
                 images: ['https://i.imgur.com/EHyR2nP.png'],
               },
-              unit_amount: total,
+              unit_amount: product.price,
             },
-            quantity: 1,
+            quantity: product.quantity,
           },
-        ]
-        console.log(items)
-        i++
+        )
       }
-      
+      return items
 }
 
 app.post('/create-session', async (req, res) => {
   const YOUR_DOMAIN = 'http://localhost:8444';
   const basket = req.session.basket
-  console.log(basket)
+  // console.log(basket)
   total = req.session.basket.total*100
-  addToStripe(req.session.basket)
+  let items = addToStripe(req.session.basket)
+  console.log(items)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: items,
@@ -160,11 +160,15 @@ app.post('/create-session', async (req, res) => {
     */
     
     mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+    success_url: `${YOUR_DOMAIN}/success`,
+    cancel_url: `${YOUR_DOMAIN}/cancel`,
   });
   res.json({ id: session.id });
 }); ;
+
+app.get('/', async (res, req) => {
+  
+})
 
 
 
