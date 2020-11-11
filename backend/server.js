@@ -7,6 +7,9 @@ const mongoose  = require('mongoose');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
+const stripe = require('stripe')('sk_test_51HmFuBIepdJVzFGkwKhCg7LDMalXP87zhOGumTLEKqM7PUwO4AIBMqQnnvgBN4xTRDceQ32mFpPEe5PEBGva7PNz00CmTZD69u');
+app.use(express.static('.'));
+
 const sessionModel = require('./models/sessionModel')
 
 const productRouter = require('./routes/productRouter')
@@ -21,6 +24,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
+router.post('/checkout', (req, res) => {
+    
+})
+
 app.engine('.hbs', hbs({
     extname: '.hbs',
     defaultLayout: 'layout'
@@ -33,7 +40,30 @@ mongoose.connect('mongodb+srv://root:password1234@cluster0.voeb0.mongodb.net/<db
     useUnifiedTopology: true
 })
 
+const YOUR_DOMAIN = 'http://localhost:8444';
 
+app.post('/create-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'gbp',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+  });
+  res.json({ id: session.id });
+}); 
 
 app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection}),

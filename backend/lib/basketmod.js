@@ -1,7 +1,6 @@
 const calculateTotal = (basket) => {
     let total = 0
     // console.log(basket)
-
     for (const [key, product] of Object.entries(basket)) {
         if(key == 'total') {
             continue

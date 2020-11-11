@@ -4,10 +4,17 @@ const productModel = require('../models/productModel')
 const calculateTotal = require('../lib/basketmod')
 
 router.get('/basket', (req, res) => {
-    // console.log(req.session)
-    let total = calculateTotal(req.session.basket)
-    
-    res.render('basket', {basket: req.session.basket, total: total} );
+    console.log(req.session)
+    if(!req.hasOwnProperty('session')){
+        res.render('basket')
+        return
+    }
+    if(req.session.hasOwnProperty('basket')){
+        let total = calculateTotal(req.session.basket)
+        res.render('basket', {basket: req.session.basket, total: total} );
+        return
+    }  
+    res.render('basket')
 
 });
 
@@ -23,10 +30,6 @@ router.post('/basket', async (req, res) => {
     let _id = req.body._id
     // console.log(_id)
     let product = await productModel.findOne({_id})
-    // console.log(product)
-    // product = product.toObject()
-    // console.log(product)
-    // console.log(req.session)
     if(!req.session.hasOwnProperty('basket')) {
         req.session.basket = {
             total: 0
@@ -43,6 +46,7 @@ router.post('/basket', async (req, res) => {
         req.session.basket[_id].quantity += 1
     }
     let total = calculateTotal(req.session.basket)
+    console.log(req.session.basket)
     req.session.basket.total = total
     req.session.save()
 })
@@ -55,6 +59,7 @@ router.get('/checkout', (req, res)=>{
     // product.save();
     res.render('checkout', {checkout: req.session.basket})
 })
+
 
 
 module.exports = router;
