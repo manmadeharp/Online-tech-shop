@@ -69,10 +69,11 @@
   </body>
   <script type="text/javascript">
     // Create an instance of the Stripe object with your publishable API key
+    
     var stripe = Stripe("pk_test_51HloaaB749D18QgjE5s6O4j6n8rkcLUOAQ4Is9BkWOyn5SYxVopZ8s4AdfWqjmjFsk28SJTKwVMNHkLgeRyKDCZK00NPUPhoBp");
     var checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", function () {
-      fetch("/checkout", {
+      fetch("/create-session", {
         method: "POST",
       })
         .then(function (response) {
