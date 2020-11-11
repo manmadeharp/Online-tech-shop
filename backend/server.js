@@ -24,9 +24,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-router.post('/checkout', (req, res) => {
+// router.post('/checkout', (req, res) => {
     
-})
+// })
 
 app.engine('.hbs', hbs({
     extname: '.hbs',
@@ -111,6 +111,31 @@ app.get('/', (req, res) => {
 });
 
 
+// const YOUR_DOMAIN = 'http://localhost:8444';
+app.post('/create-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `http://localhost:8444/success`,
+    cancel_url: `http://localhost:8444/products/laptops`,
+  });
+  res.json({ id: session.id });
+});
+
+
 
 const port = process.env.PORT || 8444
 
@@ -118,3 +143,7 @@ app.listen(port, ()=> {
     console.log(`Server is tunning on port ${port}`);
     
 });
+
+
+
+
