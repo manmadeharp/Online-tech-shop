@@ -30,9 +30,13 @@ router.get('/users', async(req, res)=> {
     res.send(users);
 });
 
+
+
 router.get('/details', async(req, res) => {
     res.render('accountDetails')
 })
+
+
 
 router.get('/profile', checkSignedIn, async (req, res) => {
     res.render('myAccount')
