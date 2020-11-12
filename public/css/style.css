@@ -649,7 +649,7 @@
   width: 100px;
   border-radius: 200px;
   height: 100px;
-  margin-left: auto;
+  margin: auto;
 }
 .thumbnail_align {
   text-align: center;

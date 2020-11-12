@@ -19,6 +19,14 @@ router.get('/login', (req, res) => {
     // console.log(req.session)
 });
 
+router.get('/logout', (req, res) => {
+    delete req.session.userID
+    delete req.session.email
+    console.log(req.session)
+    let prompt = 'you have logged out of your session'
+    res.redirect('/')
+});
+
 router.get('/profile', (req, res) => {
     res.render('myAccount');
     console.log(req.session)
@@ -30,7 +38,9 @@ router.get('/users', async(req, res)=> {
     res.send(users);
 });
 
-
+router.get('/forgotPassword', async(req, res) => {
+    res.render('passReset')
+})
 
 router.get('/details', async(req, res) => {
     res.render('accountDetails')
@@ -102,5 +112,8 @@ router.post('/login', async(req, res) => {
     res.send('You have eneterd the wrong password');
 });
 
+router.post('/passwordReset', (req, res) => {
+    let something = req.body
+})
 
 module.exports = router;

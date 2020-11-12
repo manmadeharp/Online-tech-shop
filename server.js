@@ -120,7 +120,7 @@ app.post('/create-session', async (req, res) => {
   const YOUR_DOMAIN = 'http://localhost:8444';
   const basket = req.session.basket
   // console.log(basket)
-  total = req.session.basket.total*100
+  // total = req.session.basket.total*100
   let items = addToStripe(req.session.basket)
   console.log(items)
   const session = await stripe.checkout.sessions.create({
