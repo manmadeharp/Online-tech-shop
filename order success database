@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-13T10:41:13.628Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="8wiNRQUvl0A4TfY3qVUR" version="13.9.7" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-13T11:05:56.754Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="9-5FTyjPui_xcoxdoA4u" version="13.9.7" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="2524" dy="951" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -10,11 +10,11 @@
         <mxCell id="7f7-s_UkP5h-b0KHsG4S-2" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-180" y="80" width="480" height="480" as="geometry" />
         </mxCell>
-        <mxCell id="7f7-s_UkP5h-b0KHsG4S-0" value="Users:&lt;br&gt;Orders: [_id[1],_id[2],_id[3],_id[4]]" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="7f7-s_UkP5h-b0KHsG4S-0" value="Users:&lt;br&gt;Orders: [_id[1],_id[2],_id[3],_id[4]]&lt;br&gt;UserDetails(retrieved by email):&lt;br&gt;usersdatabase&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-80" y="200" width="280" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="7f7-s_UkP5h-b0KHsG4S-1" value="Order:&lt;br&gt;_id:&lt;br&gt;Basket.stringify: &lt;br&gt;[&lt;br&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;{&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;productid1{&lt;br&gt;product.name&lt;br&gt;product.price&lt;br&gt;}&lt;br&gt;product2{&lt;br&gt;product.name&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;product.price&lt;br&gt;}&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;}&lt;/blockquote&gt;]&lt;br&gt;Price: total" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="600" y="200" width="280" height="240" as="geometry" />
+        <mxCell id="7f7-s_UkP5h-b0KHsG4S-1" value="Order:&lt;br&gt;_id:&lt;br&gt;Basket.stringify: &lt;br&gt;[&lt;br&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;{&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;productid1{&lt;br&gt;product.name&lt;br&gt;product.price&lt;br&gt;}&lt;br&gt;product2{&lt;br&gt;product.name&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;product.price&lt;br&gt;}&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;}&lt;/blockquote&gt;]&lt;br&gt;Status:&lt;br&gt;Price: total" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="600" y="200" width="280" height="270" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
