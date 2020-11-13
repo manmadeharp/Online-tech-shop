@@ -10,18 +10,19 @@ router.get('/basket', (req, res) => {
         return
     }
     if(req.session.hasOwnProperty('basket')){
+        console.log()
         let total = calculateTotal(req.session.basket)
         res.render('basket', {basket: req.session.basket, total: total} );
         return
-    }  
+    } 
+
     res.render('basket')
 
 });
 
 router.post('/basket/remove', (req, res) => {
     let _id = req.body._id
-    // delete req.session.basket[_id]
-    console.log(req.session.basket)
+    delete req.session.basket[_id]
     res.render('basket', {basket: req.session.basket}); 
     
 })
