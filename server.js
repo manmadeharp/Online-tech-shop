@@ -12,6 +12,7 @@ app.use(express.static('.'));
 
 const sessionModel = require('./models/sessionModel')
 
+const stripeRouter = require('./routes/stripeRouter')
 const productRouter = require('./routes/productRouter')
 const usersRouter = require('./routes/usersRouter')
 const basketRouter = require('./routes/basketRouter')
@@ -81,94 +82,17 @@ app.use('/users', usersRouter);
 
 app.use('/admin', adminRouter);
 
+app.use('/stripe', stripeRouter)
+
 app.use('/', basketRouter)
+
+
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
 
-const addToStripe = (basket) => {
-  let items = []
-  
-  // console.log('basket')
-  console.log(basket)
-  
-  // console.dir(test.test)
-  for (const [id, product] of Object.entries(basket)) {
-        if(id == 'total') {
-            continue
-        }
-        items.push(  
-          {
-            price_data: {
-              currency: 'gbp',
-              product_data: {
-                name: product.name,
-                images: ['https://i.imgur.com/EHyR2nP.png'],
-              },
-              unit_amount: product.price,
-            },
-            quantity: product.quantity,
-          },
-        )
-      }
-      return items
-}
-
-app.post('/create-session', async (req, res) => {
-  const YOUR_DOMAIN = 'http://localhost:8444';
-  const basket = req.session.basket
-  // console.log(basket)
-  // total = req.session.basket.total*100
-  let items = addToStripe(req.session.basket)
-  console.log(items)
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: items,
-    
-    /*[
-
-      5fa414a6325f0fa227d0f352: {
-        price_data: {
-          currency: 'gbp',
-          product_data: {
-            name: 'Stubborn Attachments',
-            images: ['https://i.imgur.com/EHyR2nP.png'],
-          },
-          unit_amount: total,
-        },
-        quantity: 1,
-      },
-
-    ],
-    [
-
-      5fa42832f00ec2a3ce4252d1: {
-        price_data: {
-          currency: 'gbp',
-          product_data: {
-            name: 'Stubborn Attachments',
-            images: ['https://i.imgur.com/EHyR2nP.png'],
-          },
-          unit_amount: total,
-        },
-        quantity: 1,
-      },
-
-    ],    
-    */
-    
-    mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success`,
-    cancel_url: `${YOUR_DOMAIN}/cancel`,
-  });
-  res.json({ id: session.id });
-}); ;
-
-app.get('/', async (res, req) => {
-  
-})
 
 
 

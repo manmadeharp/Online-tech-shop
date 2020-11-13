@@ -18,6 +18,14 @@ router.get('/login', (req, res) => {
     // console.log(req.session)
 });
 
+router.get('/logout', (req, res) => {
+    delete req.session.adminID
+    delete req.session.email
+    console.log(req.session)
+    let prompt = 'you have logged out of your session'
+    res.redirect('/')
+});
+
 // router.get('/profile', (req, res) => {
 //     res.render('myAccount');
 // });

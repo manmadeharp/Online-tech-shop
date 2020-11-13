@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model, Types} = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const user = new Schema({
@@ -12,7 +12,8 @@ const user = new Schema({
     postcode: {type: String, required: true}, 
     city: {type: String, required: true}, 
     country: {type: String, required: true},
-    role: {type: String, required: true}
+    role: {type: String, required: true},
+    orders: {type: [Types.ObjectId], required: false}
 });
 
 user.statics.checkExists = async function (email) {

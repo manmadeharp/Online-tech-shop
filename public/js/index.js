@@ -39,7 +39,8 @@ async function removeFromCart (event)  {
 var stripe = Stripe("pk_test_51HmFuBIepdJVzFGkGUfKijTUJJgZaAD298BWMauq1uqzTZ23YImzXSUHyykwjefnSIU9jOlJgM6xCVMqZxIZba7z00W7yl1az0");
    var checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", function () {
-      fetch("/create-session", {
+      console.log('test')
+      fetch("/stripe/create-session", {
         method: "POST",
         
       })

@@ -29,7 +29,7 @@
                     <li>Desktops</li>
                 </a>
                 <a href="/products/mobiles">
-                    <li>mobiles</li>
+                    <li>Mobiles</li>
                 </a>
                 <a href="/products/smartwatches">
                     <li>Smartwatches</li>
@@ -101,10 +101,15 @@
             <div class="container-fluid">
                 <div class="col-md-12 product-info">
                     <ul id="myTab" class="nav nav-tabs nav_tabs">
-                        <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+
+                        <li><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+                        <li class="active"><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+                        <li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
+
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="service-one">
+
                             <section class="container product-info">
                                 {{!-- the bigger description --}}
                                 The Corsair Gaming Series GS600 power supply is the ideal price-performance solution for

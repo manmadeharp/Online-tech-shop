@@ -5,13 +5,8 @@
                         src="images/basket+buy+cart+internet+online+shopping+icon.png" width="30" height="30" alt=""
                         style="color: #FFFFFF; float: right; font-size: smaller;" /></a>
                 {{#if email}}
-                {{#if isuserID}}
                 <a href="/users/logout"
                     style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">Logout</a>
-                {{else}}
-                <a href="/admin/logout"
-                    style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">Logout</a>
-                {{/if}}
                 <a href="/users/profile"
                     style="text-align: right; color: #FFFFFF; float: right; font-size: smaller; padding-right: 30px; position: relative;">
                     {{email}}
@@ -40,7 +35,7 @@
                     <li>Desktops</li>
                 </a>
                 <a href="/products/mobiles">
-                    <li>mobiles</li>
+                    <li>Mobiles</li>
                 </a>
                 <a href="/products/smartwatches">
                     <li>Smartwatches</li>
