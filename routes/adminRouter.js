@@ -69,7 +69,7 @@ router.post('/login', async(req, res) => {
         return;
     }
 
-    res.send('You have eneterd the wrong password');
+    res.send('You have entered the wrong password');
 });
 
 
