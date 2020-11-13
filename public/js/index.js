@@ -20,7 +20,11 @@ async function addToCart (event)  {
 }
 async function removeFromCart (event)  {
     let _id = event.target.dataset.id
-    await fetch('/basket/remove',
+     const delay = ms => new Promise(res => setTimeout(res, ms));
+     await delay(2000);
+    try {
+    //   await delay(2000);
+      await fetch('/basket/remove',
         {
           method: "POST",
           body: JSON.stringify({_id}),
@@ -28,12 +32,10 @@ async function removeFromCart (event)  {
                 "Content-Type": "application/json"
             }
         })
-        .then((res) => {
-            location.reload()
-      })
-        
-      
     console.log(_id)
+   } catch(error) {
+     console.log(error)
+  }
 } 
 
 var stripe = Stripe("pk_test_51HmFuBIepdJVzFGkGUfKijTUJJgZaAD298BWMauq1uqzTZ23YImzXSUHyykwjefnSIU9jOlJgM6xCVMqZxIZba7z00W7yl1az0");
