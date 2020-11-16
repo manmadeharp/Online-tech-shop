@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const userModel = require('../models/userModel');
+// const userModel = require('../models/userModel');
 const UserModel = require('../models/userModel');
 
 const {checkSignedIn} = require('../controllers/auth');
@@ -46,6 +46,25 @@ router.get('/details', async(req, res) => {
     res.render('accountDetails')
 })
 
+router.post('/details',async(req, res) => {
+    const {firstName, lastName, email, phoneNumber, password, addressName, addressNumber, postcode, city, country} = req.body;
+    UserModel.findOneAndUpdate({email: req.session.email}, {
+        firstName, 
+        lastName, 
+        email, 
+        phoneNumber, 
+        password, 
+        addressName, 
+        addressNumber, 
+        postcode, 
+        city, 
+        country
+    },{omitUndefined:true},(error)=>{
+        console.log(error);
+    })
+    res.render('accountDetails')
+})
+
 
 
 router.get('/profile', checkSignedIn, async (req, res) => {
@@ -70,7 +89,7 @@ router.post('/account/create', async(req, res) => {
         return;
     }
 
-    let hashedpassword = await userModel.hashPassword(password);
+    let hashedpassword = await UserModel.hashPassword(password);
 
     const user = new UserModel({
         firstName,
@@ -101,7 +120,7 @@ router.post('/login', async(req, res) => {
         return;
     }
 
-    if (await userModel.comparePassword(email, password)) {
+    if (await UserModel.comparePassword(email, password)) {
         req.session.userID = nanoid()
         req.session.email = email
         req.session.save()
