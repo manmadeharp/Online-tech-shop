@@ -1,6 +1,7 @@
 const productModel = require('../models/productModel');
 const router = require('express').Router();
 const orderModel = require('../models/orderModel')
+
 router.get('/mobiles', async(req, res) => {
     let products = await productModel.find({category: "mobiles"})
     products = products.map(product => product.toObject());
@@ -9,9 +10,11 @@ router.get('/mobiles', async(req, res) => {
     
 });
 
-router.get('/desktops', (req, res) => {
-    res.render('productCategory');
-     console.log(req.session)
+router.get('/desktops', async (req, res) => {
+    let products = await productModel.find({category: "desktops"})
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products});
+    //  console.log(req.session)
 });
 
 router.get('/laptops',async (req, res) => {
@@ -23,12 +26,16 @@ router.get('/laptops',async (req, res) => {
     // console.log(products)
 });
 
-router.get('/smartwatches', (req, res) => {
-    res.render('productCategory');
+router.get('/smartwatches', async (req, res) => {
+    let products = await productModel.find({category: "smartwatches"})
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products});
 });
 
-router.get('/accessories', (req, res) => {
-    res.render('productCategory')
+router.get('/accessories', async (req, res) => {
+    let products = await productModel.find({category: "accessories"})
+    products = products.map(product => product.toObject());
+    res.render('productCategory', {products})
 });
 
 
