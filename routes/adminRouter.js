@@ -4,10 +4,11 @@ const router = express.Router();
 
 const adminModel = require('../models/adminModel'); // ask why this included twice 
 const AdminModel = require('../models/adminModel');
+const orderModel = require('../models/orderModel')
 
-const {checkSignedIn} = require('../controllers/adminAuth');
+const { checkSignedIn } = require('../controllers/adminAuth');
 const { response } = require('express');
-const {nanoid} = require('nanoid')
+const { nanoid } = require('nanoid')
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -30,7 +31,7 @@ router.get('/logout', (req, res) => {
 //     res.render('myAccount');
 // });
 
-router.get('/users', async(req, res)=> {
+router.get('/users', async (req, res) => {
     const admin = await Admin.find({});
 
     res.send(admin);
@@ -38,23 +39,26 @@ router.get('/users', async(req, res)=> {
 
 router.get('/profile', async (req, res) => {
     console.log(req.session)
-    res.render('myAccount')  
+    res.render('myAccount')
 })
 
-router.get('/orders', checkSignedIn, async (req, res) => {
-    res.render('viewOrders')
+router.get('/allOrders', checkSignedIn, async (req, res) => {
+    let orders = await orderModel.find({})
+    order = orders.map(orders => orders.toObject())
+    console.log(order)
+    res.render('viewOrders', { order })
 })
 
 
-router.post('/login', async(req, res) => {
-    let {email, password} = req.body;
+router.post('/login', async (req, res) => {
+    let { email, password } = req.body;
     let role = 'Admin'
-     if (!await AdminModel.checkExists(email)) {  
-         console.log(email)
-         res.render('adminlogin', {error: 'no email exist'})
+    if (!await AdminModel.checkExists(email)) {
+        console.log(email)
+        res.render('adminlogin', { error: 'no email exist' })
         return;
-     }
-    
+    }
+
     // if (!await AdminModel.checkRole(email, role)) {
     //     res.render('adminlogin', {error: 'this is not an admin profile'})
     //     return;

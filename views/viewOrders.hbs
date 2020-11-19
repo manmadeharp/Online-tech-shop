@@ -44,107 +44,100 @@
     </header>
 
     <!-- body -->
-    <div class="container">
-        <div class="row">
-            <br>
-            <div class="col-md-12">
-                <div class="col-md-4 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
-                    <!--REVIEW ORDER-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading text-center">
-                            <h4>Review Order</h4>
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-md-12">
-                                <strong>Subtotal (# item)</strong>
-                                <div class="pull-right"><span>$</span><span>200.00</span></div>
-                            </div>
-                            <div class="col-md-12">
-                                <strong>Tax</strong>
-                                <div class="pull-right"><span>$</span><span>200.00</span></div>
-                            </div>
-                            <div class="col-md-12">
-                                <small>Shipping</small>
-                                <div class="pull-right"><span>-</span></div>
-                                <hr>
-                            </div>
-                            <div class="col-md-12">
-                                <strong>Order Total</strong>
-                                <div class="pull-right"><span>$</span><span>150.00</span></div>
-                                <hr>
-                            </div>
+    <main>
 
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+        <!--MDB Tables-->
+        <div class="container mt-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+
 
                         </div>
-
+                        <!-- Grid column -->
                     </div>
-                    <!--REVIEW ORDER END-->
+                    <!-- Grid row -->
+                    <!--Table-->
+
+                    {{#each this}}
+
+
+
+                    <table class="table table-striped">
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+                        <!--Table body-->
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>gag</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                        <!--Table body-->
+                    </table>
+                    <!--Table-->
+                    {{/each}}
                 </div>
-                <div class="col-md-8 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                    <!--SHIPPING METHOD-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading text-center">
-                            <h4>Current Cart</h4>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table borderless">
-                                <thead>
-                                    <tr>
-                                        <td><strong>Your Cart: # item</strong></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                    <tr>
-                                        <td class="col-md-3">
-                                            <div class="media">
-                                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                        src="http://lorempixel.com/460/250/"
-                                                        style="width: 72px; height: 72px;"> </a>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading"> Product Name</h5>
-                                                    <h5 class="media-heading"> Product Code</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">$10.99</td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-right">$32.99</td>
-                                        <td class="text-right"><button type="button"
-                                                class="btn btn-danger">Remove</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-3">
-                                            <div class="media">
-                                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                        src="http://lorempixel.com/460/250/"
-                                                        style="width: 72px; height: 72px;"> </a>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading"> Product Name</h5>
-                                                    <h5 class="media-heading"> Product Code</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">$10.99</td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-right"> $32.99</td>
-                                        <td class="text-right"><button type="button"
-                                                class="btn btn-danger">Remove</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!--SHIPPING METHOD END-->
-                </div>
+                <h2>Total Price</h2>
+                <h2>Email:</h2>
+                <h2>Order Number: {{order.orderNumber}}</h2>
             </div>
+
+
         </div>
-    </div>>
+        <!--MDB Tables-->
+
+    </main>
 
     <!-- footer -->
     <div class="row blockDisplay">
